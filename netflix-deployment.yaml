@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netflix-pod
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: netflix-pod
+  template:
+    metadata:
+      labels:
+        app: netflix-pod
+    spec:
+      containers:
+      - name: netflix-pod
+        image: nginx
+        ports:
+        - containerPort: 80
